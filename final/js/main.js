@@ -50,12 +50,14 @@ function onDeviceReady(){
 		 }
 	 });
 	 $("#b_borrar").click(function(e){
+		if($.id != -1){
 		 var mensaje;
     var opcion = confirm("Deseas Eliminar este elemento?");
     if (opcion == true) {
         deleteForm();
 	} else {
 	    return;
+	}
 	}
 		 
 	 });
