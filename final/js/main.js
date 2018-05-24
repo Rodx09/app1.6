@@ -287,6 +287,7 @@ db.transaction(queryDBDeleteByID, errorDB);
 }
 
 function queryDBDeleteByID(tx) {
+	var cat = $("#cajaCategorias").find("input:checked").val();
     tx.executeSql('DELETE FROM agenda_curso WHERE id='+$.id, [], queryDetalleSuccess, errorDB);
 }
 
