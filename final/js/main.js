@@ -280,15 +280,14 @@ function saveNewForm(){
 }
 
 function deleteForm(){
-
-db.transaction(queryDBDeleteForm, errorDB);
-	
+if(db != null){
+db.transaction(queryDBDeleteByID, errorDB);
+}
 	
 }
 
-function queryDBDeleteForm(tx){
-
-tx.executeSql('DELETE FROM agenda_curso WHERE id='+$.id, [], newFormSuccess, errorDB);
+function queryDBDeleteByID(tx) {
+    tx.executeSql('DELETE FROM agenda_curso WHERE id='+$.id, [], queryDetalleSuccess, errorDB);
 }
 
 
