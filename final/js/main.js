@@ -63,6 +63,18 @@ function onDeviceReady(){
 	 });
 }
 
+function deleteForm(){
+if(db != null){
+db.transaction(querydelete, errorDB, DeleteFormSuccess);
+}
+	
+}
+
+function querydelete(tx) {
+   
+	tx.executeSql('DELETE FROM agenda_curso WHERE id='+$.id);
+}
+
 function DeleteFormSuccess(tx){
 $("#li_"+$.id).remove();
 $.mobile.changePage("#home");	
@@ -284,17 +296,7 @@ function saveNewForm(){
 	}
 }
 
-function deleteForm(){
-if(db != null){
-db.transaction(querydelete, errorDB, DeleteFormSuccess);
-}
-	
-}
 
-function querydelete(tx) {
-   
-	tx.executeSql('DELETE agenda_curso WHERE id='+$.id);
-}
 
 
 function queryDBInsertForm(tx){
