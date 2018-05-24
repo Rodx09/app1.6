@@ -288,7 +288,7 @@ db.transaction(queryDBDeleteForm, errorDB);
 
 function queryDBDeleteForm(tx){
 
-tx.executeSql('DELETE * FROM agenda_curso WHERE id='+$.id, [], queryFormSuccess, errorDB); 	
+tx.executeSql('DELETE FROM agenda_curso WHERE id='+$.id, [], newFormSuccess, errorDB);
 }
 
 
