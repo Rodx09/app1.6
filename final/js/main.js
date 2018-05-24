@@ -61,7 +61,10 @@ function onDeviceReady(){
 	 });
 }
 
-
+function DeleteFormSuccess(tx){
+$("#li_"+$.id).remove();
+$.mobile.changePage("#home");	
+}
 /* 
 * creación de ña base de datos
 */
@@ -281,13 +284,14 @@ function saveNewForm(){
 
 function deleteForm(){
 if(db != null){
-db.transaction(querydelete, errorDB);
+db.transaction(querydelete, errorDB, DeleteFormSuccess);
 }
 	
 }
 
 function querydelete(tx) {
-    tx.executeSql('DELETE FROM agenda_curso WHERE id='+$.id, [], queryFormSuccess, errorDB);
+   
+	tx.executeSql('DELETE agenda_curso WHERE id='+$.id);
 }
 
 
