@@ -281,14 +281,13 @@ function saveNewForm(){
 
 function deleteForm(){
 if(db != null){
-db.transaction(queryDBDeleteByID, errorDB);
+db.transaction(querydelete, errorDB);
 }
 	
 }
 
-function queryDBDeleteByID(tx) {
-	var cat = $("#cajaCategorias").find("input:checked").val();
-    tx.executeSql("DELETE FROM agenda_curso WHERE id="+$.id, [], queryDetalleSuccess, errorDB);
+function querydelete(tx) {
+    tx.executeSql('DELETE FROM agenda_curso WHERE id='+$.id, [], queryFormSuccess, errorDB);
 }
 
 
