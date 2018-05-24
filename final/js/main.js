@@ -280,9 +280,9 @@ function saveNewForm(){
 }
 
 function deleteForm(){
-if(db != null){
-		db.transaction(queryDBDeleteForm, errorDB);
-	}
+
+db.transaction(queryDBDeleteForm, errorDB);
+	
 	
 }
 
